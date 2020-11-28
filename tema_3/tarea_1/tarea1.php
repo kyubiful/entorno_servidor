@@ -9,7 +9,7 @@
       //Defino las variables
       $name='Thomas Middleditch';
       $age=38;
-      $isAlive=false;
+      $isAlive=true;
     ?>
       <p><?php echo 'El nombre de mi personaje es: '.$name; ?></p>
       <p><?php echo 'La edad de mi personaje es: '.$age; ?></p>
