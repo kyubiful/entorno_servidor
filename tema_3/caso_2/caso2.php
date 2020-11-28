@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Caso 1</title>
+    <title>Caso 2</title>
   </head>
   <body>
   <style>
