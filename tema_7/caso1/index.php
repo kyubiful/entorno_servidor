@@ -1,6 +1,10 @@
 <?php
   $mysqli=new mysqli('localhost','root','root','paises',8889);
-  $lista_paises=$mysqli->query("SELECT * FROM pais;");
+  $consulta=$mysqli->query("SELECT * FROM pais;");
+  $paises=[];
+  while($filas=$consulta->fetch_assoc()){
+    $paises[]=$filas;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,16 +22,12 @@
       <th>Continente</th>
     </tr>
     <?php
-    foreach($lista_paises as $pais){
+    foreach($paises as $pais){
     ?>
     <tr>
-    <?php
-      foreach($pais as $datos){
-    ?>
-      <td><?php echo $datos ?></td>
-    <?php
-      }
-    ?>
+      <td><?php echo $pais['id'] ?></td>
+      <td><?php echo $pais['nombre'] ?></td>
+      <td><?php echo $pais['continente'] ?></td>
     </tr>
     <?php
     }
