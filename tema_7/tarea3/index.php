@@ -1,6 +1,11 @@
 <?php
   include '../tarea2/dbClub.php';
-  $datos_jugadores=$mysqli->query("SELECT * FROM jugadores");
+  $jugadores=[];
+  $consulta=$mysqli->query("SELECT * FROM jugadores");
+  while($filas=$consulta->fetch_assoc()){
+    $jugadores[]=$filas;
+  }
+  
   echo '<br/><br/>';
 ?>
 <!DOCTYPE html>
@@ -20,16 +25,14 @@
       <th>Edad</th>
     </tr>
     <?php
-      foreach($datos_jugadores as $jugadores){
+    foreach($jugadores as $jugador){
     ?>
     <tr>
-    <?php
-	foreach($jugadores as $jugador){
-    ?>
-      <td><?php echo $jugador ?></td>
-    <?php
-	}
-    ?>
+      <td><?php echo $jugador['Id'] ?></td>
+      <td><?php echo $jugador['nombreJugador'] ?></td>
+      <td><?php echo $jugador['posición'] ?></td>
+      <td><?php echo $jugador['numero'] ?></td>
+      <td><?php echo $jugador['edad'] ?></td>
     </tr>
     <?php
       }
