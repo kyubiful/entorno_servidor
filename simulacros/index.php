@@ -1,5 +1,6 @@
 <?php
   //Hacemos la consulta
+  $mysqli = new mysqli('localhost','user','password','db','port');
   $resultado = $mysqli->query('SELECT * FROM ciudades');
   $ciudades = [];
 while($rows = $resultado->fetch_assoc()){
